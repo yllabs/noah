@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noah</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #ff5d8f 10%, #140014 90%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .intro-container {
+      position: relative;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .pfp {
+      width: min(50vw, 220px);
+      height: min(50vw, 220px);
+      border-radius: 50%;
+      border: 4px solid #fff;
+      object-fit: cover;
+      box-shadow: 0 0 30px rgba(255, 90, 150, 0.7);
+      animation: zoomIn 1.5s ease-in-out;
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 15px #ff90b5, 0 0 30px #ff5d8f;
+      animation: slideDown 1.2s ease-in-out;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .quote {
+      margin-top: 25px;
+      font-size: 1.2rem;
+      color: #ffeaf1;
+      text-shadow: 0 0 8px #ff99c4;
+      animation: fadeInUp 1.2s ease-in-out;
+      max-width: 90vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .credits {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes zoomIn {
+      from {transform: scale(0.6);}
+      to {transform: scale(1);}
+    }
+
+    @keyframes slideDown {
+      from {transform: translate(-50%, -60px); opacity: 0;}
+      to {transform: translate(-50%, 0); opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-container">
+    <div class="overlay-text">トガ ヒミコ</div>
+    <img class="pfp" id="pfp" alt="Toga PFP">
+    <p class="quote" id="quote"></p>
+    <div class="credits">Proud Founder of YL Labs and Pulse Labs</div>
+  </div>
+
+  <script>
+    // Random quote setup
+    const quotes = [
+      "I just wanna love, live, and die my way.",
+      "You’re so cute, I wanna be you!",
+      "When I see something I love, I just wanna become it!",
+      "Blood is the most beautiful thing in the world…",
+      "Let’s smile together until we die, okay?"
+    ];
+    document.getElementById("quote").textContent =
+      quotes[Math.floor(Math.random() * quotes.length)];
+
+    // Profile image
+    document.getElementById("pfp").src =
+      "https://cdn.discordapp.com/attachments/1437017654841049274/1438075747867820113/image.png";
+  </script>
+</body>
+</html>
